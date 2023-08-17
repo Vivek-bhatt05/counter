@@ -1,7 +1,9 @@
 import './App.css';
 import AreaChartComponent from './component/AreaChartComponent';
+import BarChartComponent from './component/BarChartComponent';
 import LineChartComponent from './component/LineChartComponent';
 // import Counter from './component/Counter';
+import ScatterChartComponent from './component/ScatterChartComponent';
 
 function App() {
 
@@ -21,7 +23,9 @@ function App() {
     <div className="App">
       {/* <Counter /> */}
       <LineChartComponent data={sampleData} />
-      {/* <AreaChartComponent data={sampleData} /> */}
+      <AreaChartComponent data={sampleData} />
+      <ScatterChartComponent data={sampleData} />
+      <BarChartComponent data={sampleData} />
 
     </div>
   );
