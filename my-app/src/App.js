@@ -1,7 +1,10 @@
 import './App.css';
 import AreaChartComponent from './component/AreaChartComponent';
 import BarChartComponent from './component/BarChartComponent';
+import FunnelChartComponent from './component/FunnelChartComponent';
 import LineChartComponent from './component/LineChartComponent';
+import PieChartComponent from './component/PieChartComponent';
+import RadarChartComponent from './component/RadarChartComponent';
 // import Counter from './component/Counter';
 import ScatterChartComponent from './component/ScatterChartComponent';
 
@@ -26,6 +29,9 @@ function App() {
       <AreaChartComponent data={sampleData} />
       <ScatterChartComponent data={sampleData} />
       <BarChartComponent data={sampleData} />
+      <PieChartComponent data={sampleData}  />
+      <RadarChartComponent data={sampleData}  />
+      <FunnelChartComponent data={sampleData} />
 
     </div>
   );
