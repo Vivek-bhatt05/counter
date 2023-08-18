@@ -47,6 +47,16 @@ function App() {
       ...prevData,
       [name]: value
     }));
+    const updatedData = Object.entries({
+      ...data,
+      [name]: value
+    }).map(([name, value]) => ({
+      name,
+      value: parseInt(value, 10) || 0
+    }));
+  
+    setSubmittedData(updatedData);
+    socket.emit('updateData', updatedData);
   };
 
   useEffect(() => {
@@ -59,35 +69,36 @@ function App() {
     };
   }, []);
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    console.log(data);
+  // const handleSubmit = (event) => {
+  //   event.preventDefault();
+  //   console.log(data);
 
-    if(data.january===""||data.february===""||data.march===""||data.april===""||data.may===""||data.june===""){
-      alert("Fill the values")
-      return
-    }
-    else{
-    const sampleData = Object.entries(data).map(([name, value]) => ({
-      name,
-      value: parseInt(value, 10) || 0 
-    }));
+  //   if(data.january===""||data.february===""||data.march===""||data.april===""||data.may===""||data.june===""){
+  //     alert("Fill the values")
+  //     return
+  //   }
+  //   else{
+  //   const sampleData = Object.entries(data).map(([name, value]) => ({
+  //     name,
+  //     value: parseInt(value, 10) || 0 
+  //   }));
     
-    setSubmittedData(sampleData);
-    socket.emit('updateData', sampleData);
+  //   setSubmittedData(sampleData);
+  //   socket.emit('updateData', sampleData);
 
-    setData({
-      january: '',
-      february: '',
-      march: '',
-      april: '',
-      may: '',
-      june: ''
-    })
-   }
-  };
+  //   setData({
+  //     january: '',
+  //     february: '',
+  //     march: '',
+  //     april: '',
+  //     may: '',
+  //     june: ''
+  //   })
+  //  }
+  // };
 
-  console.log(submittedData);
+  console.log(data)
+  console.log(submittedData)
 
 
   return (
@@ -96,7 +107,7 @@ function App() {
 
      <div>
       <h2>Enter Data for the First 6 Months</h2>
-      <form onSubmit={handleSubmit}>
+      <form>
         <label htmlFor="january">January:</label>
         <input
           type="text"
@@ -150,8 +161,6 @@ function App() {
           value={data.june}
           onChange={handleChange}
         /><br /><br />
-
-        <button type="submit">Submit</button>
       </form>
     </div>
 
