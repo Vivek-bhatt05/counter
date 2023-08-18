@@ -71,6 +71,15 @@ function App() {
     
     setSubmittedData(sampleData);
     socket.emit('updateData', sampleData);
+
+    setData({
+      january: '',
+      february: '',
+      march: '',
+      april: '',
+      may: '',
+      june: ''
+    })
   };
 
   console.log(submittedData);
