@@ -63,7 +63,11 @@ function App() {
     event.preventDefault();
     console.log(data);
 
-    
+    if(data.january===""||data.february===""||data.march===""||data.april===""||data.may===""||data.june===""){
+      alert("Fill the values")
+      return
+    }
+    else{
     const sampleData = Object.entries(data).map(([name, value]) => ({
       name,
       value: parseInt(value, 10) || 0 
@@ -80,6 +84,7 @@ function App() {
       may: '',
       june: ''
     })
+   }
   };
 
   console.log(submittedData);
